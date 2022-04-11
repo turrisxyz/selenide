@@ -74,12 +74,12 @@ public class SetValueOptions {
   @CheckReturnValue
   @Nonnull
   public SetValueOptions sensitive() {
-    return new SetValueOptions(method, value, mask(value.toString()));
+    return new SetValueOptions(method, value, mask(value));
   }
 
   @Nonnull
   @CheckReturnValue
-  String mask(String text) {
+  private String mask(CharSequence text) {
     return REGEX_ANY_CHAR.matcher(text).replaceAll("*");
   }
 
